@@ -21,3 +21,12 @@ class Tweet(DB.Model):
     
     def __repr__(self):
         return '<Tweet {}>'.format(self.text)
+
+def tweet_generator(user,tweet):
+    u1 = User(name=user)
+    t1 = Tweet(text=tweet)
+    u1.tweets.append(t1)
+    DB.session.add(u1)
+    DB.session.add(t1)
+    DB.session.commit()
+    return "Generated a tweet by " + str(user) + "with the tweet: " + str(tweet)
