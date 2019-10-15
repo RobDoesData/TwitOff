@@ -1,19 +1,28 @@
+from decouple import config
 from flask import Flask, render_template
-from .models import DB
+from .models import DB, User
 
 
 def create_app():
     """Create and configure an instance of the Flask Application"""
     app = Flask(__name__)
-    app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///db.sqlite3'
+    app.config['SQLALCHEMY_DATABASE_URI'] = config('DATABASE_URL')
+    app.config['ENV'] = config('ENV')
     DB.init_app(app)
 
     @app.route('/')
     def root():
-        return render_template('home.html')
+        users = User.query.all()
+        return render_template('home.html', title='Welcome to Twitoff!', users=users)
     
     @app.route("/about")
     def preds():
         return render_template('about.html')
+
+    @app.route("/reset")
+    def reset():
+        DB.drop_all()
+        DB.create_all()
+        return render_template('reset.html', title='DB Reset!')
 
     return app

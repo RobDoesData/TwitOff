@@ -2,10 +2,15 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title>Flask Tutorial</title>
+    <title>Twitoff</title>
     </head>
     <body>
-      <h1> My First Try Using Flask </h1>
-      <p> Flask is Fun </p>
+      <h1> {{title}}! </h1>
+      <ul>
+          <h2> Users in Database: </h2>
+          {% for user in users%}
+          <li> {{ user.username }} </li>
+          {% endfor %}  
+      </ul>
     </body>
 </html>
