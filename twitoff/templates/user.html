@@ -5,11 +5,11 @@
     <title>Twitoff</title>
     </head>
     <body>
-      <h1> {{title}}! </h1>
+      <h1> User page! </h1>
       <ul>
-          <h2> Users in Database: </h2>
-          {% for user in users%}
-          <li> {{ user.name }} </li>
+          <h2> Tweets from {{name}}: </h2>
+            {% for tweet in tweets %}
+            <span class="stack"><li>{{ tweet.id }} - {{ tweet.text }}</li></span>
           {% endfor %}  
       </ul>
     </body>
