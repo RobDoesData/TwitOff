@@ -24,7 +24,7 @@ def create_app():
     def reset():
         DB.drop_all()
         DB.create_all()
-        return render_template('reset.html', title='DB Reset!', users=[])
+        return render_template('home.html', title='DB Reset!', users=[])
     
     @app.route('/user', methods=['POST'])
     @app.route('/user/<name>/', methods=['GET'])
