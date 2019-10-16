@@ -1,16 +1,13 @@
-<!DOCTYPE html>
-<html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title>Twitoff</title>
-    </head>
-    <body>
-      <h1> User page! </h1>
-      <ul>
-          <h2> Tweets from {{name}}: </h2>
-            {% for tweet in tweets %}
-            <span class="stack"><li>{{ tweet.id }} - {{ tweet.text }}</li></span>
-          {% endfor %}  
-      </ul>
-    </body>
-</html>
+{% extends "home.html" %}
+{% block content %}
+
+<h2>User {{title}}</h2>
+<p> {{ message }} </p>
+<ul>
+  <h2> Tweets from {{name}}: </h2>
+    {% for tweet in tweets %}
+    <span class="stack"><li>{{ tweet.id }} - {{ tweet.text }}</li></span>
+  {% endfor %}  
+</ul>
+
+{% endblock %}

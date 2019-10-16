@@ -2,15 +2,18 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title>Twitoff</title>
+    <title>Twitoff - {{ title }} </title>
     </head>
+
+
     <body>
-      <h1> {{title}}! </h1>
-      <ul>
-          <h2> Users in Database: </h2>
-          {% for user in users%}
-          <li> {{ user.name }} </li>
-          {% endfor %}  
-      </ul>
+      <h1> Twitoff! </h1>
+
+      {% block content %}
+      <form action="/user" method="post">
+        <input type="text" name="user_name" placeholder="User to add">
+        <input type="submit" value="Add User">
+      </form>
+      {% endblock %}
     </body>
 </html>
