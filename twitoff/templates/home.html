@@ -17,7 +17,7 @@
       </div>
     </nav>
 ​
-    <article class="flex two" style="padding: 3em 1em;">
+    <article class="flex two" style="padding: 3em 4em 3em 4em;">
       {% block content %}
       <div>
         <h1>{{ title }}</h1>
@@ -40,7 +40,7 @@
         <span class="stack">{{ comparison }}</span>
         {% endfor %}
       </div>
-      <div>
+      <div style="padding: 3em 4em 3em 4em;">
         <h2>Users</h2>
         {% for user in users %}
         <a href="/user/{{ user.name }}"><span class="stack">{{ user.name }}</span></a>

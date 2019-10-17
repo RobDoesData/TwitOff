@@ -1,7 +1,7 @@
 from decouple import config
 from flask import Flask, render_template, request
 from .models import DB, User, Tweet
-from .twitter import add_or_update_user
+from .twitter import add_or_update_user, update_all_users
 from .predict import predict_user
 def create_app():
     """Create and configure an instance of the Flask Application"""
@@ -60,6 +60,6 @@ def create_app():
     @app.route('/update')
     def update():
         update_all_users()
+        pass
         return render_template('home.html', users=User.query.all(), title='All Tweets updated!')
-
     return app
